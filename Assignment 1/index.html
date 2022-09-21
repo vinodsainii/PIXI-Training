@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./node_modules/pixi.js/dist/browser/pixi.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.mjs" type="module"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.mjs" type="module"></script>
 <style>
     *
     {
@@ -29,6 +29,8 @@
     <div id="pr"></div>
     <script>
         console.log('pixi',PIXI);
+        let rendererr=new PIXI.autoDetectRenderer(256,256);
+        console.log(rendererr);
         const game = new PIXI.Application({
             backgroundColor: 0xff0000,
             width:innerWidth,
@@ -39,14 +41,13 @@
         
 
         game.loader.add('car','./car.png').load( ()=> {
-            document.body.appendChild(game.view);
-
-                const car = PIXI.Sprite.from('car');
-                game.stage.addChild(car);
-                car.x = innerHeight/0.9;
-                car.y = innerWidth/4;
-                car.anchor.set(0.5);
-                const text = new PIXI.Text('Hello');
+        document.body.appendChild(game.view);
+        const car = PIXI.Sprite.from('car');
+        game.stage.addChild(car);
+        car.x = innerHeight/0.9;
+        car.y = innerWidth/4;
+        car.anchor.set(0.5);
+        const text = new PIXI.Text('Hello');
         game.stage.addChild(text);
         text.x=(innerWidth/2);
         text.y=(innerHeight/1.9);
